@@ -1,4 +1,48 @@
+*{
+    margin: 0;
+}
+
+body{
+    
+    padding: 0%;
+    
+    background-color: rgb(172, 201, 196);
+    
+}
+
+header{
+    background-image: linear-gradient(to right, blue, turquoise)
+}
+h1{
+    display: flex;
+    justify-content: center;
+    padding: .2em 2em;
+    margin: 0%;
+    font-family: jazz;
+    color: lightcoral;
+    text-shadow: 3px 1px rgb(1, 16, 143);
+}
+
 fieldset{
     display: flex;
     flex-direction: column;
+    background-image: url(../images/tree-background.jpg)
+}
+label{
+    font-family: jazz;
+    padding: .5em 0px;
+    font-weight: bold;
+    text-shadow: 1px 1px orange;
+}
+
+
+input, textarea, select {
+    background-image: linear-gradient(to right, blue, turquoise);
+    color: beige;
+}
+::placeholder{
+    color: beige;
+}
+.button {
+    text-align: center;
 }
