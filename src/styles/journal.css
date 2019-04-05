@@ -2,16 +2,31 @@
     margin: 0;
 }
 
+@keyframes bodyBG {
+    0%   {background-color: rgb(172, 201, 196)}
+    55%   {background-color: lightcoral}
+    100% {background-color:rgb(172, 201, 196)}
+  }
+
+  @keyframes headerTXT {
+    0% {color:lightcoral}
+    55% {color: rgb(162, 236, 224)}
+    100% {color: lightcoral}
+
+}
+
 body{
     
     padding: 0%;
-    
+    animation-name: bodyBG;
+    animation-duration: 4s;
     background-color: rgb(172, 201, 196);
     
 }
 
 header{
     background-image: linear-gradient(to right, blue, turquoise)
+    
 }
 h1{
     display: flex;
@@ -21,6 +36,8 @@ h1{
     font-family: jazz;
     color: lightcoral;
     text-shadow: 3px 1px rgb(1, 16, 143);
+    animation-name: headerTXT;
+    animation-duration: 4s;
 }
 
 fieldset{
@@ -44,5 +61,18 @@ input, textarea, select {
     color: beige;
 }
 .button {
+    margin-top: .5em;
     text-align: center;
+}
+.box{
+    
+}
+
+.box p{
+    flex-direction
+    text-align: center;
+    background-image: linear-gradient(to right, rgb(172, 201, 196), lightcoral);
+    color: rgb(172, 201, 196);
+    border-radius: 5px;
+    margin: .5em ;
 }
