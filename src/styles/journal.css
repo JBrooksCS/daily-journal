@@ -8,10 +8,15 @@
     100% {background-color:rgb(172, 201, 196)}
   }
 
-  @keyframes headerTXT {
+@keyframes headerTXT {
     0% {color:lightcoral}
     55% {color: rgb(162, 236, 224)}
     100% {color: lightcoral}
+}
+@keyframes entryHeaderTXT {
+    0% {color:lightcoral}
+    55% {color: rgb(162, 236, 224)}
+    100% {color: rgb(219, 168, 168)}
 
 }
 
@@ -75,4 +80,27 @@ input, textarea, select {
     color: rgb(172, 201, 196);
     border-radius: 5px;
     margin: .5em ;
+}
+.previous_entries {
+    
+}
+
+.entry_header {
+    display: flex;
+    justify-content: center;
+    padding: .2em 2em;
+    margin: 0%;
+    font-family: jazz;
+    color: rgb(219, 168, 168);
+    text-shadow: 1.5px 1px rgb(1, 16, 143);
+    animation-name: entryHeaderTXT;
+    animation-duration: 1.5s;
+
+}
+
+.entryLog{
+    color: rgb(61, 61, 248);
+    background: rgb(166, 209, 223);
+    border-radius: .3em;
+    
 }
