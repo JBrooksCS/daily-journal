@@ -2,37 +2,47 @@
     Define the keys and value for a JavaScript object that
     represents a journal entry about what you learned today
 */
-//var dateSelected = new Date;
-//var conceptsText = new String;
-//var entryText = new String;
-//var moodText = new String;
-//Behold, the holder of the entry objects 
-//var journalEntries = [];
+//Set the default value of the date input to todays date
+var today = new Date();
+document.querySelector("#journalDate").value = today.toISOString().substr(0, 10);
+
 
 function makeJournalEntryComponent(journalEntry) {
     // Create your own HTML structure for a journal entry
     //console.log(`Entry text : ${journalEntry.text}`)
-    const fragment = document.createDocumentFragment()
+    const entryCard = document.createElement('div')
+    entryCard.className = "card";
     //Date
     const dateOfEntry = document.createElement('h3')
     dateOfEntry.textContent = (journalEntry.date)
     dateOfEntry.className = "entry_header"
-    fragment.appendChild(dateOfEntry)
+    entryCard.appendChild(dateOfEntry)
     //Concepts
     const concepts = document.createElement('p')
     concepts.textContent = "Concepts covered : " + (journalEntry.concepts)
-    fragment.appendChild(concepts)
+    entryCard.appendChild(concepts)
     //Entry
     const entry = document.createElement('p')
     entry.textContent = "Entry : " + (journalEntry.text)
-    fragment.appendChild(entry)
+    entryCard.appendChild(entry)
     //Mood
     const mood = document.createElement('p')
     mood.textContent = "Mood : " + (journalEntry.mood)
-    fragment.appendChild(mood)
+    entryCard.appendChild(mood)
+    //ADD Delete Button
+    const removebtn = document.createElement('button')
+    removebtn.className = "remove";
+    removebtn.textContent = "DELETE";
+    entryCard.appendChild(removebtn);
+    removebtn.addEventListener("click", function(event){
+        //console.log(event.target);
+        let container = removebtn.parentNode;
+        container.removeChild(removebtn);
+        container.parentNode.removeChild(container);
+    })
 
-    //add the fragment we've compiled to the DOM
-    document.querySelector(".entryLog").appendChild(fragment)
+    //add the entryCard we've compiled to the DOM
+    document.querySelector(".entryLog").appendChild(entryCard)
 
     //apply style
     document.querySelector(".entryLog").style.border = "1px solid blue";
@@ -61,7 +71,7 @@ function logFields() {
         .then(result => result.json()).then(entries => {
             //////////Add field data object to JSON object array
 
-            //entries[entries.length+1] = objectsJournalEntry;
+            //attempt to add to JSON..probably isn't correct
             entries.push(objectsJournalEntry);
 
             clearDOMList();
