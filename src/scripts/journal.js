@@ -2,28 +2,48 @@
     Define the keys and value for a JavaScript object that
     represents a journal entry about what you learned today
 */
-var dateSelected = new Date;
-var conceptsText = new String;
-var entryText = new String;
-var moodText = new String;
-//Behold, the holder of the entry objects 
-var journalEntries = [];
+//Set the default value of the date input to todays date
+var today = new Date();
+document.querySelector("#journalDate").value = today.toISOString().substr(0, 10);
+
+let objectsJournalEntry = {
+        
+        date: "",
+        concepts: "",
+        text: "",
+        mood: ""
+};
+
+
 
 function logFields() {
-    //might need to add exception for blank fields.. havent checked..
-    dateSelected = document.getElementById('journalDate').value;
-    conceptsText = document.getElementById('concepts').value;
-    entryText = document.getElementById('entry').value;
-    moodText = document.getElementById('mood').value;
-   //create the object
-    const objectsJournalEntry = {
-        EntryDate: dateSelected,
-        Concepts: conceptsText,
-        Entry: entryText,
-        Mood: moodText
+    //create an object to pass
+    objectsJournalEntry = {
+        date: document.getElementById('journalDate').value,
+        concepts: document.getElementById('concepts').value,
+        text: document.getElementById('entry').value,
+        mood: document.getElementById('mood').value
     }
-    journalEntries.push(objectsJournalEntry);
+    //reset input fields
+    document.getElementById('journalDate').value = today.toISOString().substr(0, 10);
+    document.getElementById('concepts').value = "";
+    document.getElementById('entry').value = "";
+    document.getElementById('mood').value = "";
+
+    updateEntries(objectsJournalEntry);
 }
+//Initial Update from API
+updateEntries(objectsJournalEntry);
+
+/*
+const xhr = new XMLHttpRequest();
+xhr.onload = function () {
+    console.log(this.responseText);
+}
+xhr.open('get','http://localhost:3000/entries');
+xhr.send();
+*/
+
 
 
 

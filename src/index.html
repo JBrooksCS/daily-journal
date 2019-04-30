@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +9,23 @@
     <link rel="stylesheet" href="styles/journal.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <body>
     <header>
-            <h1>Daily Journal</h1>
+        <h1>Daily Journal</h1>
     </header>
-    
+
     <form action="">
         <fieldset>
             <label for="journalDate">Date of Entry</label>
             <input type="date" name="journalDate" id="journalDate">
-             
+
             <label for="concepts">Concepts covered</label>
             <input type="text" name="concepts" id="concepts" placeholder="What did we cover today?" size="30">
 
             <label for="entry">Journal Entry</label>
             <textarea name="entry" id="entry" cols="30" rows="3"></textarea>
-        
+
             <label for="mood">Mood for the day</label>
             <select name="mood" id="mood">
                 <option value="">(select one)</option>
@@ -36,9 +38,14 @@
         </fieldset>
     </form>
     <div class="button">
-        <button onclick="logFields()">Record Journal Entry</button>
+        <button onclick="logFields()">Record & View History</button>
     </div>
-    <span class="box"> 
+    <div class="previous_entries">
+        <article class="entryLog">
+
+        </article>
+    </div>
+    <span class="box">
         <p> - </p>
         <p> - </p>
         <p> - </p>
@@ -58,7 +65,11 @@
         <p> - </p>
         <p> - </p>
     </span>
+    <script src="scripts/data.js"></script>
     <script src="scripts/journal.js"></script>
-    <script src="scripts/script.js"></script>
+    
+    <script src="scripts/entriesDOM.js"></script>
+    <script src="scripts/entryComponent.js"></script>
 </body>
+
 </html>
