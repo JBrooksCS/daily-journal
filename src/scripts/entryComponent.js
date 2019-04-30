@@ -15,7 +15,7 @@ function makeJournalEntryComponent(journalEntry) {
     const concepts = document.createElement('p')
     concepts.textContent = "Concepts covered : " + (journalEntry.concepts)
     entryCard.appendChild(concepts)
-    //Entry
+    //Entry 
     const entry = document.createElement('p')
     entry.textContent = "Entry : " + (journalEntry.text)
     entryCard.appendChild(entry)
@@ -29,10 +29,12 @@ function makeJournalEntryComponent(journalEntry) {
     removebtn.textContent = "DELETE";
     entryCard.appendChild(removebtn);
     removebtn.addEventListener("click", function(event){
-        //console.log(event.target);
+        //Remove the button, then remove the container of the button/entry
         let container = removebtn.parentNode;
         container.removeChild(removebtn);
         container.parentNode.removeChild(container);
+        //Remove the entry from the API
+        removeEntryAPI(journalEntry)
     })
 
     return entryCard;

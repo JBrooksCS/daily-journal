@@ -1,44 +1,46 @@
 //code that deals with getting the data
-function updateEntries (entryObject) {
-   /*
-    if (entryObject.text !== ""){
-        console.log(entryObject)
-        fetch(`http://localhost:3000/entries`, {
-            method: 'POST',
-            body: entryObject
-        }).then(
-            response => response.json() // if the response is a JSON object
-          ).then(
-            success => console.log(success) // Handle the success response object
-          ).catch(
-            error => console.log(error) // Handle the error response object
-          );
+function updateEntries(entryObject) {
+    const blankEntry = (entryObject.text === "")
 
-        //entries.push(entryObject);
+    if (blankEntry) {
+        fetch(`http://localhost:3000/entries`)
+            .then(result => result.json()).then(entries => {
+                entries.forEach(single_entry => {
+                    console.log('No new entry - populating from API');
+                    let card = makeJournalEntryComponent(single_entry);
+                    addToDOM(card);
+                })
+            })
     }
-   else {
-    fetch(`http://localhost:3000/entries`)
-        .then(result => result.json()).then(entries => {
+    else {
+        // Use `fetch` with the POST method to add your entry to your API
+        fetch("http://localhost:3000/entries", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(entryObject)
+        }).then(result =>{
             clearDOMList();
-            entries.forEach(single_entry => {
-                //console.log(single_entry);
-                let card = makeJournalEntryComponent(single_entry);
-                addToDOM(card);
+            fetch(`http://localhost:3000/entries`)
+            .then(result => result.json()).then(entries => {
+                entries.forEach(single_entry => {
+                    console.log(`Entry added, printing to DOM ${entries.length}`);
+                    let card = makeJournalEntryComponent(single_entry);
+                    addToDOM(card);
+                })
             })
         })
-   } */
-    //WORKING
-    fetch(`http://localhost:3000/entries`)
-        .then(result => result.json()).then(entries => {
-            if (entryObject.text !== ""){
-                entries.push(entryObject);
-            }
-            clearDOMList();
-            entries.forEach(single_entry => {
-                console.log(single_entry);
-                let card = makeJournalEntryComponent(single_entry);
-                addToDOM(card);
+    }
+}
+function removeEntryAPI (entry){
+    console.log('Need to remove', entry.id)
 
-            })
+    return fetch('http://localhost:3000/entries' + `/` + entry.id, {
+        method: 'delete'
+      }).then(response =>
+        response.json().then(json => {
+          return json;
         })
+      );
 }

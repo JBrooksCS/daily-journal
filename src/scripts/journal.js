@@ -5,7 +5,9 @@
 //Set the default value of the date input to todays date
 var today = new Date();
 document.querySelector("#journalDate").value = today.toISOString().substr(0, 10);
+
 let objectsJournalEntry = {
+        
         date: "",
         concepts: "",
         text: "",
@@ -15,32 +17,22 @@ let objectsJournalEntry = {
 
 
 function logFields() {
-    //might need to add exception for blank fields.. havent checked..
-    dateSelected = document.getElementById('journalDate').value;
-    conceptsText = document.getElementById('concepts').value;
-    entryText = document.getElementById('entry').value;
-    moodText = document.getElementById('mood').value;
-    //create the object
-    objectsJournalEntry = /*JSON.stringify(*/ {
-        date: dateSelected,
-        concepts: conceptsText,
-        text: entryText,
-        mood: moodText
+    //create an object to pass
+    objectsJournalEntry = {
+        date: document.getElementById('journalDate').value,
+        concepts: document.getElementById('concepts').value,
+        text: document.getElementById('entry').value,
+        mood: document.getElementById('mood').value
     }
-    //console.log(`Before Stringify : ${objectsJournalEntry}`)
-    //JSON.stringify(objectsJournalEntry)
-    //console.log(`After Stringify : ${objectsJournalEntry}`)
     //reset input fields
     document.getElementById('journalDate').value = today.toISOString().substr(0, 10);
     document.getElementById('concepts').value = "";
     document.getElementById('entry').value = "";
     document.getElementById('mood').value = "";
 
-
-
     updateEntries(objectsJournalEntry);
 }
-
+//Initial Update from API
 updateEntries(objectsJournalEntry);
 
 /*
