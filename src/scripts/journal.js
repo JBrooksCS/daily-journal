@@ -7,16 +7,14 @@ var today = new Date();
 document.querySelector("#journalDate").value = today.toISOString().substr(0, 10);
 
 let objectsJournalEntry = {
-        
         date: "",
         concepts: "",
         text: "",
         mood: ""
 };
 
-
-
 function logFields() {
+    console.log("logging fields!")
     //create an object to pass
     objectsJournalEntry = {
         date: document.getElementById('journalDate').value,
@@ -35,14 +33,7 @@ function logFields() {
 //Initial Update from API
 updateEntries(objectsJournalEntry);
 
-/*
-const xhr = new XMLHttpRequest();
-xhr.onload = function () {
-    console.log(this.responseText);
-}
-xhr.open('get','http://localhost:3000/entries');
-xhr.send();
-*/
+
 
 
 

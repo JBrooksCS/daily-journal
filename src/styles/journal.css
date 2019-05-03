@@ -18,19 +18,14 @@
     55% {color: rgb(162, 236, 224)}
     100% {color: rgb(219, 168, 168)}
 }
-
 body{
-    
     padding: 0%;
     animation-name: bodyBG;
     animation-duration: 4s;
     background-color: rgb(172, 201, 196);
-    
 }
-
 header{
     background-image: linear-gradient(to right, blue, turquoise)
-    
 }
 h1{
     display: flex;
@@ -39,15 +34,17 @@ h1{
     margin: 0%;
     font-family: jazz;
     color: lightcoral;
-    text-shadow: 3px 1px rgb(1, 16, 143);
+    text-shadow: 1px 1px rgb(77, 243, 193);
     animation-name: headerTXT;
     animation-duration: 4s;
 }
-
 fieldset{
     display: flex;
     flex-direction: column;
     background-image: url(../images/tree-background.jpg)
+}
+#journalDate{
+    padding-left: 4em;
 }
 label{
     font-family: jazz;
@@ -55,28 +52,47 @@ label{
     font-weight: bold;
     text-shadow: 1px 1px orange;
 }
-
-
+#sortBy label{
+    color: rgb(188, 255, 233);
+    font-size: .8em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 1px 2px lightcoral;
+}
 input, textarea, select {
     background-image: linear-gradient(to right, blue, turquoise);
-    color: beige;
+    color: rgb(204, 252, 241);
+    font-size: 1.1em;
+}
+textarea{
+    width: 99%;
+}
+input {
+    padding: .2em;
+}
+#sortOption{
+}
+.previous_entries{
+    /*visibility: hidden;*/
 }
 ::placeholder{
-    color: beige;
+    color: rgb(163, 200, 211);
 }
 .button {
-    margin-top: .5em;
-    margin-bottom: .5em;
+    margin: .5em 0;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 .button button{
+    color: darkblue;
     border-radius: .3em;
     background-color: rgb(186, 235, 236);
     border-right-color: rgb(163, 85, 85);
     border-bottom-color: rgb(163, 85, 85);
+    font-size: .8em;
 }
+
 .box{
-    
 }
 
 .box p{
@@ -88,7 +104,6 @@ input, textarea, select {
     margin: .5em ;
 }
 .previous_entries {
-    
 }
 
 .entry_header {
@@ -108,15 +123,11 @@ input, textarea, select {
     color: rgb(61, 61, 248);
     background: rgb(166, 209, 223);
     border-radius: .3em;
-    
 }
 .card {
     border: 1px dotted rgb(127, 141, 219);
     display: flex;
     flex-direction: column;
-
-    
-    
 }
 
 .remove {

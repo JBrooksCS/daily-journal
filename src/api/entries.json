@@ -1,18 +1,32 @@
 {
   "entries": [
     {
-      "id": "1",
-      "date": "11-05-1987",
-      "concepts": "Stuff!",
-      "text": "OMG STUFF",
-      "mood": "Amazing"
+      "date": "2024-05-01",
+      "concepts": "dhgkdg",
+      "text": "asdfasdf",
+      "mood": "Outstanding",
+      "id": 3
     },
     {
-      "date": "2019-04-30",
-      "concepts": "sdf",
-      "text": "sdfsdf",
+      "date": "2019-05-02",
+      "concepts": "Lots of stuff",
+      "text": "Stuff in the present",
       "mood": "Outstanding",
-      "id": "TT1tTn9"
+      "id": 5
+    },
+    {
+      "date": "2019-05-02",
+      "concepts": "sdf",
+      "text": "sdfsdfd",
+      "mood": "Outstanding",
+      "id": 6
+    },
+    {
+      "date": "2019-05-03",
+      "concepts": "Array Methods cont'd",
+      "text": "More practice with array methods",
+      "mood": "Great",
+      "id": 7
     }
   ]
 }
