@@ -3,15 +3,9 @@ var sortClicked = false;
 //code that deals with getting the data
 function updateEntries(entryObject) {
     const blankEntry = (entryObject.text === "")
-
-    if (blankEntry) {
-        //TO DO - add something that only lets this srtByDate get called if the filter element has been clicked at least once.
-        if(sortClicked){
-            sortByDate()
-        }
-        //sortByDate()
-        //prompt("Enter Journal Entry!")
-        }
+    if (blankEntry && sortClicked) {
+        debugger
+    }
     else {
         fetch("http://localhost:3000/entries", {
             method: "POST",
@@ -23,6 +17,7 @@ function updateEntries(entryObject) {
             sortByDate()
         })
     }
+
 }
 function removeEntryAPI(entry) {
     console.log('Removing ', entry.id)
@@ -31,9 +26,10 @@ function removeEntryAPI(entry) {
         method: 'delete'
     }).then(response =>
         response.json().then(json => {
+            console.log(json)
             return json;
         })
-    );
+    )
 }
 function sortByDate() {
     let newOrder = []
@@ -49,18 +45,32 @@ function sortByDate() {
                 newOrder.reverse()
             }
             console.log(`Order is ${order}`)
-            console.log(newOrder)
+            //console.log(newOrder)
             clearDOMList();
             newOrder.forEach(entry => {
                 let card = makeJournalEntryComponent(entry);
                 addToDOM(card);
             })
+            let viewHide = document.querySelector(".view")
+            //console.log(viewHide)
+            if(sortClicked){
+                document.querySelector(".previous_entries").style.display = "initial"
+                viewHide.textContent = "Hide History"
+            }
+            else{
+                document.querySelector(".previous_entries").style.display = "none"
+                viewHide.textContent = "View History"
+            }
         })
 }
-function showEntries(){
-    sortClicked = true;
-}
-function showFields(){
-    let history = document.querySelector(".previous_entries")
-    console.log(history.style.visibility = "visible")
+function showFields() {
+    //let history = document.querySelector(".previous_entries")
+    //history.style.display = "flex" //fix
+    if(sortClicked === true){
+        sortClicked = false;
+    }
+    else{
+        sortClicked = true;
+    }
+    sortByDate()
 }

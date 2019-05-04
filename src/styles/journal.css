@@ -72,7 +72,7 @@ input {
 #sortOption{
 }
 .previous_entries{
-    /*visibility: hidden;*/
+    /*display: none;*/
 }
 ::placeholder{
     color: rgb(163, 200, 211);

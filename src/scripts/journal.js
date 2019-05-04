@@ -31,7 +31,7 @@ function logFields() {
     updateEntries(objectsJournalEntry);
 }
 //Initial Update from API
-updateEntries(objectsJournalEntry);
+//updateEntries(objectsJournalEntry);
 
 
 
