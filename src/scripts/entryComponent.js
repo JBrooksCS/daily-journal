@@ -28,9 +28,11 @@ function makeJournalEntryComponent(journalEntry) {
     removebtn.className = "remove";
     removebtn.textContent = "DELETE";
     entryCard.appendChild(removebtn);
-    removebtn.addEventListener("click", function(event){
+    removebtn.addEventListener("click", function (event) {
         //Remove the button, then remove the container of the button/entry
+
         let container = removebtn.parentNode;
+        console.log(`Removing ${container}`)
         container.removeChild(removebtn);
         container.parentNode.removeChild(container);
         //Remove the entry from the API
@@ -43,14 +45,14 @@ function makeJournalEntryComponent(journalEntry) {
 }
 
 function formatDate(Year_Mo_Da) {
-    if (Year_Mo_Da[2] !== '-'){
-    const year = Year_Mo_Da.substr(0,4);
-    const month = Year_Mo_Da.substr(5,2);
-    const day = Year_Mo_Da.substr(8,2);
-    //console.log(month +'-'+ day +'-'+ year);
-    return (month +'-'+ day +'-'+ year);
+    if (Year_Mo_Da[2] !== '-') {
+        const year = Year_Mo_Da.substr(0, 4);
+        const month = Year_Mo_Da.substr(5, 2);
+        const day = Year_Mo_Da.substr(8, 2);
+        //console.log(month +'-'+ day +'-'+ year);
+        return (month + '-' + day + '-' + year);
     }
-    else{
+    else {
         return Year_Mo_Da;
     }
 }

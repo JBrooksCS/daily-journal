@@ -38,12 +38,17 @@
         </fieldset>
     </form>
     <div class="button">
-        <button onclick="logFields()">Record & View History</button>
+        <button class="record" onclick="logFields()">Record Entry</button>
+        <button class="view" onclick="showFields()">View History</button>
+        <div id="sortBy" for="sort"><label for="sortBy">Sort by</label>
+            <select name="sort" id="sortOption" onchange="sortByDate()">
+                <option value="descending">New -> Old</option>
+                <option value="ascending">Old -> New</option>
+            </select>
+        </div>
     </div>
     <div class="previous_entries">
-        <article class="entryLog">
-
-        </article>
+        <article class="entryLog"></article>
     </div>
     <span class="box">
         <p> - </p>
@@ -67,7 +72,7 @@
     </span>
     <script src="scripts/data.js"></script>
     <script src="scripts/journal.js"></script>
-    
+
     <script src="scripts/entriesDOM.js"></script>
     <script src="scripts/entryComponent.js"></script>
 </body>
